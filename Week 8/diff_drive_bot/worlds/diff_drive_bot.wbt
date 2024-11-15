@@ -1,0 +1,118 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.11394792353132514 -0.2671032756933415 -0.95690736794989 5.444419531726252
+  position -0.5827858974504649 -0.7494341615922955 0.40993461054418723
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Robot {
+  translation 0.29961971897237244 -0.0017084335196076625 -0.00020219137403790222
+  rotation -0.9997366180961471 0.0035605012063153908 0.02267194894222061 0.0290222543491845
+  children [
+    DEF Body Pose {
+      translation 0 0 0.0415
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.08
+            radius 0.045
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -175.49051419605277
+        anchor 0.045 0 0.025
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.045 0 0.025
+        rotation 0.21276997870893413 0.9536927786581795 0.21260061170053196 1.6173968187841814
+        children [
+          DEF Wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.025
+            }
+          }
+        ]
+        boundingObject USE Wheel
+        physics DEF wheel_physics Physics {
+        }
+        linearVelocity 0.0005020053350997205 0.07655587369480733 -2.4966133622210374e-07
+        angularVelocity -3.139958142764278 0.021631181406849408 0.4007733492254004
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -87.80088490806067
+        anchor 0.045 0 0.025
+      }
+      device [
+        RotationalMotor {
+          name "motor2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.044999999999999984 0 0.025
+        rotation 0.08155586682000256 0.9933316999148767 0.08149094754302201 1.5766905983184594
+        children [
+          USE Wheel
+        ]
+        name "solid(1)"
+        boundingObject USE Wheel
+        physics USE wheel_physics
+        linearVelocity 0.00028702101635302694 0.0412157130571776 7.162294807709803e-08
+        angularVelocity -1.5699931505488283 0.009412075345551475 0.39500935137419724
+      }
+    }
+    Solid {
+      translation 0.015 0.045 0.07
+      children [
+        DEF eye Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.005 0.005 0.005
+          }
+        }
+      ]
+      name "solid(2)"
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+  }
+  controller "drive_my_robot"
+  linearVelocity 0.00021322478807995126 0.05888759802697368 -1.1631976581265268e-07
+  angularVelocity 5.869784447257213e-06 2.935236235264693e-06 0.39249791763686775
+}
