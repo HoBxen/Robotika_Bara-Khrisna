@@ -1,0 +1,36 @@
+Berikut penjelasan singkat mengenai komponen komunikasi di ROS:
+
+Topic Publisher:
+Publisher adalah node yang mengirim/mempublikasikan data secara terus menerus ke dalam topic tertentu. Contohnya: sensor yang mengirim data pembacaan secara kontinu.
+
+Topic Subscriber:
+Subscriber adalah node yang menerima/berlangganan data dari topic tertentu. Contohnya: node pengolah data yang menerima data sensor untuk diproses.
+
+Message (msg) Publisher:
+Publisher yang mengirim data dalam format pesan khusus yang didefinisikan sendiri (.msg file). Memungkinkan pengiriman data dengan struktur yang lebih kompleks.
+
+Message (msg) Subscriber: 
+Subscriber yang menerima data dalam format pesan khusus (.msg file). Dapat memproses data dengan struktur yang telah didefinisikan.
+
+Service Server:
+Node yang menyediakan layanan spesifik dan menunggu permintaan dari client. Bekerja dengan pola request-response. Contoh: server kalkulasi yang menunggu input untuk dihitung.
+
+Service Client:
+Node yang meminta layanan dari service server. Mengirim request dan menunggu response. Contoh: client yang mengirim angka untuk dikalkulasi.
+
+Action Server:
+Server yang menangani tugas kompleks dan berjalan lama. Dapat memberikan feedback selama proses berlangsung. Contoh: server navigasi robot.
+
+Action Client:
+Client yang meminta eksekusi tugas kompleks ke action server. Dapat menerima feedback dan membatalkan tugas. Contoh: client yang meminta robot bergerak ke lokasi tertentu.
+
+Toolbar Atas:
+
+Interact: Untuk berinteraksi dengan objek di viewport
+Move Camera: Mengatur pergerakan kamera dalam viewport
+Select: Memilih objek dalam viewport
+Focus Camera: Memfokuskan kamera pada objek terpilih
+Measure: Mengukur jarak dalam viewport
+2D Pose Estimate: Memperkirakan pose 2D robot
+2D Nav Goal: Menentukan target navigasi 2D
+Publish Point: Mempublikasikan titik koordinat
