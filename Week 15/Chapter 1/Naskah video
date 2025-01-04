@@ -1,0 +1,28 @@
+saya akan menjelaskan apa itu ROS, mengapa penting untuk mempelajarinya, dan bagaimana kita bisa memulai dengan langkah-langkah sederhana.
+ROS, atau Robot Operating System, adalah framework perangkat lunak yang sangat populer untuk mengembangkan aplikasi robot. ROS menyediakan berbagai fitur yang mempermudah pengembang robot, seperti komunikasi antar komponen, simulasi, debugging, hingga visualisasi data. Beberapa alat yang terkenal di ROS adalah RViz untuk visualisasi robot dan Gazebo untuk simulasi. Dalam ROS, kita memiliki beberapa komponen utama: 1. Node, yang bertugas menjalankan fungsi tertentu; 2. Master, yang bertindak sebagai server pusat untuk mengatur komunikasi antar node; 3. Topics, yang menjadi jalur komunikasi antar node; dan 4. Parameter Server, yang berfungsi menyimpan konfigurasi yang dapat diakses oleh seluruh node.
+Langkah pertama, kita akan memperbarui sistem Ubuntu kita. Buka terminal dengan menekan Ctrl+Alt+T, lalu ketikkan:
+sudo apt update
+sudo apt upgrade -y
+Tunggu hingga proses update selesai.
+Selanjutnya, kita perlu menambahkan repositori ROS ke sistem. Ketikkan perintah berikut:
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-noetic.list'
+Untuk keamanan, kita perlu menambahkan kunci keamanan ROS. Install curl terlebih dahulu dengan:
+sudo apt install curl
+Lalu tambahkan kunci dengan perintah:
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+Sekarang saatnya menginstall ROS. Kita akan menginstall versi desktop-full yang mencakup semua tools dan library standar:
+sudo apt update
+sudo apt install ros-noetic-desktop-full
+Proses ini mungkin memakan waktu beberapa menit tergantung kecepatan internet Anda.
+Setelah instalasi selesai, kita perlu mengkonfigurasi environment ROS. Ketikkan:
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+Perintah ini memastikan ROS siap digunakan setiap kali Anda membuka terminal baru.
+Langkah terakhir adalah menginstall dependensi tambahan dan menginisialisasi rosdep:
+sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+sudo rosdep init
+rosdep update
+Selamat! ROS sudah terinstall di sistem Anda. Untuk memastikan instalasi berhasil, coba jalankan:
+roscore
+Jika muncul pesan bahwa ROS Master sedang berjalan, berarti instalasi Anda sukses!
+Sekian tutorial instalasi ROS dari saya. Di video selanjutnya, kita akan membahas cara membuat workspace dan menggunakan fitur-fitur dasar ROS. Jangan lupa like, comment, dan subscribe untuk tutorial ROS lainnya. Terima kasih telah menonton!"
